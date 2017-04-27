@@ -14,12 +14,25 @@ describe Fizzbuzz::API, type: :request do
   end
 
   describe 'POST /favorite' do
-    it 'make number favorite data' do
+    let(:favorite) { FavoriteNumber.create(number: '111') }
+
+    it 'make number favorite' do
       post '/favorite', params: { number: '10000', favorited: true }
       hash_response = JSON.parse(response.body)
 
       expect(response.status).to eq(201)
       expect(hash_response['favorite']).to eq(true)
+      expect(FavoriteNumber.count).to eq(1)
+      expect(FavoriteNumber.first.number).to eq('10000')
+    end
+
+    it 'make number favorite' do
+      post '/favorite', params: { number: '111', favorited: false }
+      hash_response = JSON.parse(response.body)
+
+      expect(response.status).to eq(201)
+      expect(hash_response['favorite']).to eq(false)
+      expect(FavoriteNumber.count).to eq(0)
     end
   end
 end

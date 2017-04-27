@@ -8,7 +8,7 @@ class NumberFavoriter
     if @status
       FavoriteNumber.find_or_create_by!(number: @number)
     else
-      FavoriteNumber.find_by_number(@number).delete
+      FavoriteNumber.where(number: @number).delete_all
     end
 
     { favorite: @status }
