@@ -1,4 +1,6 @@
 class FizzBuzzGenerator
+  UPPER_LIMIT = 100_000_000_000
+
   def initialize(page, per_page)
     @page = page
     @per_page = per_page
@@ -22,10 +24,14 @@ class FizzBuzzGenerator
   end
 
   def from
-    ((@page - 1) * @per_page) + 1
+    check(((@page - 1) * @per_page) + 1)
   end
 
   def to
-    (from + @per_page) - 1
+    check((from + @per_page) - 1)
+  end
+
+  def check(number)
+    number > UPPER_LIMIT ? UPPER_LIMIT : number
   end
 end
