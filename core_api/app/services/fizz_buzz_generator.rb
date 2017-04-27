@@ -8,7 +8,7 @@ class FizzBuzzGenerator
 
   def generate
     (from..to).map do |number|
-      { number: fizzbuzz?(number), favorite: FavoriteNumberChecker.new(number).check }
+      { number: fizzbuzz?(number), real_number: number, favorite: FavoriteNumberChecker.new(number).check }
     end
   end
 
