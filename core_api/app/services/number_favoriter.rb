@@ -5,9 +5,12 @@ class NumberFavoriter
   end
 
   def favorite
-    # FavoriteNumber.create(number: '11111111111')
-    # if status true -> create record
-    # if false -> delete record
-    { favorite: true }
+    if @status
+      FavoriteNumber.find_or_create_by!(number: @number)
+    else
+      FavoriteNumber.find_by_number(@number).delete
+    end
+
+    { favorite: @status }
   end
 end
