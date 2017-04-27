@@ -4,6 +4,6 @@ class FavoriteNumberChecker
   end
 
   def check
-    true
+    false
   end
 end
