@@ -15,9 +15,11 @@ describe Fizzbuzz::API, type: :request do
 
   describe 'POST /favorite' do
     let(:favorite) { FavoriteNumber.create(number: '111') }
+    let(:params) { { number: '10000', favorited: true, page: 1, per_page: 100 } }
+    let(:other_params) { { number: '111', favorited: false, page: 1, per_page: 100 } }
 
     it 'make number favorite' do
-      post '/favorite', params: { number: '10000', favorited: true }
+      post '/favorite', params: params
       hash_response = JSON.parse(response.body)
 
       expect(response.status).to eq(201)
@@ -27,7 +29,7 @@ describe Fizzbuzz::API, type: :request do
     end
 
     it 'make number favorite' do
-      post '/favorite', params: { number: '111', favorited: false }
+      post '/favorite', params: other_params
       hash_response = JSON.parse(response.body)
 
       expect(response.status).to eq(201)

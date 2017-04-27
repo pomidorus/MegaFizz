@@ -27,8 +27,12 @@ module Fizzbuzz
     params do
       requires :number, type: String
       requires :favorited, type: Boolean
+      requires :page, type: Integer, desc: 'Page number'
+      requires :per_page, type: Integer, desc: 'Number of numbers on the page'
     end
     post :favorite do
+      Rails.cache.delete(cache_key)
+
       NumberFavoriter.new(params[:number], params[:favorited]).favorite
     end
   end
