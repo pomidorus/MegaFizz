@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe FizzBuzzGenerator do
-  let(:generator) { FizzBuzzGenerator.new(1, 10) }
+  let(:generator) { FizzBuzzGenerator.new(1, 15) }
   let(:data) do
     [
       {:number=>1, :favorite=>false},
@@ -13,7 +13,12 @@ describe FizzBuzzGenerator do
       {:number=>7, :favorite=>false},
       {:number=>8, :favorite=>false},
       {:number=>"Fizz", :favorite=>false},
-      {:number=>"Buzz", :favorite=>false}
+      {:number=>"Buzz", :favorite=>false},
+      {:number=>11, :favorite=>false},
+      {:number=>"Fizz", :favorite=>false},
+      {:number=>13, :favorite=>false},
+      {:number=>14, :favorite=>false},
+      {:number=>"FizzBuzz", :favorite=>false}
     ]
   end
 
