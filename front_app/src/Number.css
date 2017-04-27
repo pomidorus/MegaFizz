@@ -1,0 +1,20 @@
+.Number {
+  cursor: pointer;
+  position: relative;
+  margin: 8px 8px;
+  box-shadow: 4px 4px 14px #eee;
+
+  padding: 16px 16px 16px 16px;
+}
+
+.Number.Favorite .Overlay {
+  border: 10px solid red;
+}
+
+.Overlay {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}

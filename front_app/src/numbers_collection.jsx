@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './NumbersCollection.css';
+import Number from "./number";
 
 class NumbersCollection extends Component {
   state = {
@@ -47,19 +48,24 @@ class NumbersCollection extends Component {
   render() {
     var numbers = this.state.numbers.map(function(number) {
       return (
-        <div>ddddd</div>
+        <Number
+          number={number.number}
+          real={number.real_number}
+          favorite={number.favorite}
+          key={number.real_number}
+        />
       )}, this);
 
     return(
-        <div className="NumbersCollection">
-          <div className="Numbers">
-            {numbers}
-          </div>
-          <div className="Navigation">
-            <div className="Previous" onClick={() => this.view_page(this.state.page - 1)}>&larr; PREVIOUS PAGE</div>
-            <div className="Next" onClick={() => this.view_page(this.state.page + 1)}>NEXT PAGE &rarr;</div>
-          </div>
+      <div className="NumbersCollection">
+        <div className="Numbers">
+          {numbers}
         </div>
+        <div className="Navigation">
+          <div className="Previous" onClick={() => this.view_page((this.state.page - 1), 100)}>&larr; PREVIOUS PAGE</div>
+          <div className="Next" onClick={() => this.view_page((this.state.page + 1), 100)}>NEXT PAGE &rarr;</div>
+        </div>
+      </div>
     );
   }
 }
