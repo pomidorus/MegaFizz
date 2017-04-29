@@ -17,6 +17,13 @@ class NumbersCollection extends Component {
     this.setState({per_page: event.target.value});
   }
 
+  update_page = (key, page, per_page) => {
+    if (key === 13) {
+      var url = 'https://protected-wave-98335.herokuapp.com/numbers?page=' + page +'&per_page=' + per_page;
+      this.request_numbers(url);
+    }
+  }
+
   view_page = (page, per_page) => {
     if (page >= 1) {
       var url = 'https://protected-wave-98335.herokuapp.com/numbers?page=' + page +'&per_page=' + per_page;
@@ -60,6 +67,15 @@ class NumbersCollection extends Component {
 
     return(
       <div className="NumbersCollection">
+        <div className="PerPage">
+          <h2>Numbers per page:</h2>
+          <input type="number" value={this.state.per_page} onChange={this.update_per_page} onKeyDown={(event) => this.update_page(
+              event.keyCode,
+              this.state.page,
+              this.state.per_page
+          )}
+          />
+        </div>
         <div className="Numbers">
           {numbers}
         </div>
