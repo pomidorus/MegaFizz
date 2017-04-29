@@ -25,7 +25,7 @@ module Fizzbuzz
 
     desc 'Favorite number'
     params do
-      requires :number, type: String
+      requires :number, type: Integer
       requires :favorited, type: Boolean
       requires :page, type: Integer, desc: 'Page number'
       requires :per_page, type: Integer, desc: 'Number of numbers on the page'
