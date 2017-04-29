@@ -80,8 +80,8 @@ class NumbersCollection extends Component {
           {numbers}
         </div>
         <div className="Navigation">
-          <div className="Previous" onClick={() => this.view_page((this.state.page - 1), 100)}>&larr; PREVIOUS PAGE</div>
-          <div className="Next" onClick={() => this.view_page((this.state.page + 1), 100)}>NEXT PAGE &rarr;</div>
+          <div className="Previous" onClick={() => this.view_page((this.state.page - 1), this.state.per_page)}>&larr; PREVIOUS PAGE</div>
+          <div className="Next" onClick={() => this.view_page((this.state.page + 1), this.state.per_page)}>NEXT PAGE &rarr;</div>
         </div>
       </div>
     );
