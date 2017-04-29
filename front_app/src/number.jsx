@@ -14,7 +14,7 @@ class Number extends Component {
       mode: 'cors',
       body: JSON.stringify({
         number: number,
-        favorited: true,
+        favorited: !this.state.favorite,
         page: this.props.page,
         per_page: this.props.per_page
       }),
