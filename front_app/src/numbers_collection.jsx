@@ -53,6 +53,8 @@ class NumbersCollection extends Component {
           real={number.real_number}
           favorite={number.favorite}
           key={number.real_number}
+          page={this.state.page}
+          per_page={this.state.per_page}
         />
       )}, this);
 

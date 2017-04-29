@@ -12,7 +12,12 @@ class Number extends Component {
     var request = new Request('https://protected-wave-98335.herokuapp.com/favorite', {
       method: 'POST',
       mode: 'cors',
-      body: JSON.stringify({number: number, favorited: true}),
+      body: JSON.stringify({
+        number: number,
+        favorited: true,
+        page: this.props.page,
+        per_page: this.props.per_page
+      }),
       headers: new Headers({
         'Content-Type': 'application/json'
       })
@@ -27,7 +32,7 @@ class Number extends Component {
 
   render() {
     return(
-      <div className={this.state.favorite ? 'Number Favorite' : 'Number'} onClick={() => this.favorite_number_request(this.props.number)}>
+      <div className={this.state.favorite ? 'Number Favorite' : 'Number'} onClick={() => this.favorite_number_request(this.props.real)}>
         <div className="Value">
           {this.props.number}
         </div>
