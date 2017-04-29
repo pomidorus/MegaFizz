@@ -1,9 +1,9 @@
 class FavoriteNumberChecker
   def initialize(number)
-    @number = number
+    @number = number.to_s
   end
 
   def check
-    false
+    FavoriteNumber.where(number: @number).present?
   end
 end
