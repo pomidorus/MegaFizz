@@ -1,19 +1,43 @@
-# FizzBuzz
+# FizzBuzz Elixir Console application
 
-**TODO: Add description**
+`./fizzbuzz numbers --page=1 --per-page=10`
 
-## Installation
+````
+-*1*-
+2
+Fizz
+4
+-*Buzz*-
+Fizz
+7
+8
+Fizz
+Buzz
+````
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `fizzbuzz` to your list of dependencies in `mix.exs`:
+`./fizzbuzz favorite --number=1 --favorited=false --page=1 --per-page=10`
 
-```elixir
-def deps do
-  [{:fizzbuzz, "~> 0.1.0"}]
-end
-```
+`Response: removed from favorite`
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/fizzbuzz](https://hexdocs.pm/fizzbuzz).
+`./fizzbuzz numbers --page=1 --per-page=10`
 
+````
+1
+2
+Fizz
+4
+-*Buzz*-
+Fizz
+7
+8
+Fizz
+Buzz
+````
+
+`./fizzbuzz help`
+
+````
+`help` - show this message
+`numbers --page=PAGE --per-page=PER_PAGE` - show list of fizzbuzz numbers with params PAGE(Integer) and PER_PAGE(Integer)
+`favorite --number=NUMBER --favorited=FAVORITED --page=PAGE --per-page=PER_PAGE` - Favorite or unfavorite NUMBER(Iteger) with flag FAVORITED and params PAGE(Integer) and PER_PAGE(Integer)
+````
