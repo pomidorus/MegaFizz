@@ -16,8 +16,7 @@ defmodule FizzBuzz do
   end
 
   defp parse_command([["favorite"], options]) do
-    IO.puts "Favorite command executed"
-    IO.puts "Options #{options[:page]} #{options[:per_page]} #{options[:number]} #{options[:favorited]}"
+    Command.Favorite.execute(options)
   end
 
   def process([[], []]) do
