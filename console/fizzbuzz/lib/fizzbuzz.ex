@@ -1,23 +1,44 @@
 defmodule FizzBuzz do
-  use Application
   @moduledoc """
   Documentation for FizzBuzz.
   """
 
-  def start(_type, _args) do
-    IO.puts 'Hello'
+  def main(args) do
+    args |> parse_args |> process
   end
 
-  @doc """
-  Hello world.
+  defp parse_command([["help"], []]) do
+    Command.Showhelp.execute
+  end
 
-  ## Examples
+  defp parse_command([["numbers"], options]) do
+    Command.Numbers.execute(options)
+  end
 
-      iex> FizzBuzz.hello
-      :world
+  defp parse_command([["favorite"], options]) do
+    IO.puts "Favorite command executed"
+    IO.puts "Options #{options[:page]} #{options[:per_page]} #{options[:number]} #{options[:favorited]}"
+  end
 
-  """
-  def hello do
-    :world
+  def process([[], []]) do
+    IO.puts "No commands given"
+  end
+
+  def process([commands, options]) do
+    [commands, options]
+    |> parse_command
+  end
+
+  defp parse_args(args) do
+    {options, commands, _} = OptionParser.parse(args,
+      switches: [
+        page: :integer,
+        per_page: :integer,
+        number: :integer,
+        favorited: :boolean
+      ]
+    )
+
+    [commands, options]
   end
 end
