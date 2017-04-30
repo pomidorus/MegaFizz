@@ -7,13 +7,16 @@ defmodule Service.MegaFizzApi do
     url_body = "{\"number\": \"#{number}\", \"favorited\": \"#{favorited}\", \"page\": \"#{page}\", \"per_page\": \"#{per_page}\"}"
     try do
       HTTPoison.start
-      HTTPoison.post(url_favorite, url_body, [{"Content-Type", "application/json"}]).body
-      |> Poison.decode!
-      |> IO.puts("OK favorited")
+      HTTPoison.post(url_favorite, url_body, [{"Content-Type", "application/json"}])
+      |> handle_response
     rescue
       e in HTTPoison.Error -> e
       ""
     end
+  end
+
+  def handle_response({:ok, %HTTPoison.Response{body: body}}) do
+    IO.puts "Response: #{Poison.decode!(body)["status"]}"
   end
 
   def get_numbers([page: page, per_page: per_page]) do
