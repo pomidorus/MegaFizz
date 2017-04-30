@@ -17,6 +17,14 @@ defmodule Service.MegaFizzApi do
   end
 
   def display_numbers(numbers) do
-    Enum.each(numbers, fn(number) -> IO.puts number["number"] end)
+    Enum.each(numbers, fn(number) -> style_favorite_number(number["number"], number["favorite"]) end)
+  end
+
+  def style_favorite_number(number, favorite) do
+    if favorite do
+      IO.puts "-*#{number}*-"
+    else
+      IO.puts number
+    end
   end
 end
