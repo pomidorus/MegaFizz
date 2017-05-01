@@ -1,5 +1,13 @@
 # FizzBuzz Elixir Console application
 
+### Info
+
+I tried to implement command pattern in the application. Every command have their own module.
+After programm run, I parse arguments with OptionParser. Then regarding elixir matching pattern I choose what command
+should run. Commands than run MegaFizzApi service, which implements `httpoison` module behaviour.
+
+### How it works
+
 Let's show some help
 
 ````
